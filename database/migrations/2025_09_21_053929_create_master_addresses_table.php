@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('master_addresses', function (Blueprint $table) {
-            $table->char('postal_code', 5)->primary();   // kodepos
+            $table->char('postal_code', 5)->unique();   // kodepos
             $table->string('subdistrict', 100);         // kelurahan
             $table->string('district', 100);            // kecamatan
             $table->string('city_regency', 100);        // kabupaten_kota

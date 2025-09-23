@@ -20,7 +20,7 @@ class MasterAddressResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    public static function form(Schema $schema): Schema
+    public static function form( $schema): Schema
     {
         return MasterAddressForm::configure($schema);
     }
@@ -45,4 +45,7 @@ class MasterAddressResource extends Resource
             'edit' => EditMasterAddress::route('/{record}/edit'),
         ];
     }
+    protected static ?string $navigationLabel = 'Alamat Utama';
+    protected static ?string $pluralModelLabel = 'Alamat Utama';
+    protected static ?string $modelLabel = 'Alamat Utama';
 }
