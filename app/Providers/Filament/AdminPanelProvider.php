@@ -26,7 +26,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->brandName('SMKN 1 DEPOK')
             ->colors([
-                'primary' => 'amber',
+                'warning' => 'amber',
             ])
             // ->sidebarCollapsibleOnDesktop()
             // ->collapsedSidebarWidth('9.5rem') 

@@ -16,9 +16,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 //     Route::get('/guru/dashboard', fn() => view('guru.dashboard'))->name('guru.dashboard');
 // });
 
-// Siswa
 Route::middleware('auth:student')->group(function () {
-    Route::get('/student/dashboard', fn() => view('student.dashboard'))->name('student.dashboard');
+    Route::get('/student/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
+    Route::post('/student/{nisn}/grade', [StudentController::class, 'updateGrade'])->name('student.updateGrade');
 });
 
 

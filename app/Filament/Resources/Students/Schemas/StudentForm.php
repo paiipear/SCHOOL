@@ -45,14 +45,12 @@ class StudentForm
                 ->label('Kelas'),
                 
             ComponentsFieldset::make('Nilai Kelulusan')
-                ->relationship('grade')                
                 ->schema([
-                    TextInput::make('score')  
+                    TextInput::make('grade.score')
                         ->numeric()
                         ->minValue(0)
                         ->maxValue(100),
-                ]),
-                
+            ]),                
             ComponentsSection::make('Alamat Siswa')
                     ->schema([
                     ComponentsGroup::make([

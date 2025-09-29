@@ -29,8 +29,12 @@ class StudentAddress extends Model
     }
 
     public function getFullAddressAttribute(): string
-    {
-        return "Jl. {$this->street} No.{$this->number}, RT {$this->rt}/RW {$this->rw}, {$this->postal_code}";
+     {
+    $master = $this->masterAddress;
+
+    return "Jl. {$this->street} No.{$this->number}, RT {$this->rt}/RW {$this->rw}, " .
+           ($master ? "{$master->subdistrict}, {$master->district}, {$master->city_regency}, {$master->province}" : '') .
+           " ({$this->postal_code})";
     }
 
 }

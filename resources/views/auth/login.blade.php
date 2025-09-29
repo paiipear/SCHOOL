@@ -20,8 +20,7 @@
 
     <form method="POST" action="{{ route('login') }}" class="space-y-5">
       @csrf
-
-      {{-- Username --}}
+      
       <div>
         <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
         <div class="relative">
@@ -42,8 +41,6 @@
           <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
         @enderror
       </div>
-
-      {{-- Password --}}
       <div>
         <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
         <div class="relative">
@@ -64,7 +61,6 @@
         @enderror
       </div>
 
-      {{-- Submit --}}
       <button type="submit"
               class="w-full py-2 px-4 bg-amber-600 text-white font-semibold rounded-lg shadow hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition">
         Login

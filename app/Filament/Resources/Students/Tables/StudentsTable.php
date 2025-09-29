@@ -28,8 +28,8 @@ class StudentsTable
                     ->label('Jenis Kelamin')
                     ->badge()
                     ->colors([
-                        'info' => 'P',
-                        'primary' => 'L',
+                        'warning' => 'P',
+                        'info' => 'L',
                     ]),
 
                 TextColumn::make('schoolClass.class_name')
@@ -106,7 +106,7 @@ class StudentsTable
                             ActionsAction::make('download_qr')
                                 ->label('Download QR')
                                 ->icon('heroicon-o-arrow-down-tray')
-                                ->color('primary')
+                                ->color('warning')
                                 ->url(route('download.qr', $record->id), shouldOpenInNewTab: false),
                         ];
                     }),

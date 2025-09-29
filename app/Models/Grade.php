@@ -12,9 +12,17 @@ class Grade extends Model
     protected static function booted()
     {
         static::saving(function ($grade) {
-            $grade->result = $grade->score >= 70 ? 'Lulus' : 'Tidak Lulus';
+            if (is_null($grade->score)) {
+                $grade->result = 'Belum Ada Status';
+            } elseif ($grade->score >= 70) {
+                $grade->result = 'Lulus';
+            } else {
+                $grade->result = 'Tidak Lulus';
+            }
         });
     }
+    
+
 
     // Relationship with student
     public function student()
