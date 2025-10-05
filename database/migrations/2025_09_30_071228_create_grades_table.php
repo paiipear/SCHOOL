@@ -11,9 +11,9 @@ return new class extends Migration
         Schema::create('grades', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('student_id');
-            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade')->unique(); ;
 
-            $table->decimal('score', 5, 2);
+            $table->decimal('score', 5, 2)->nullable();
 
             $table->enum('result', ['Lulus', 'Tidak Lulus'])->default('Tidak Lulus');
 
