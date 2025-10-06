@@ -8,7 +8,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class StudentController extends Controller
 {
-    // Dashboard Siswa (lihat biodata + nilai + QR)
+    
     public function dashboard()
     {
         $student = Student::with(['schoolClass', 'grade'])
@@ -20,11 +20,9 @@ class StudentController extends Controller
             abort(404, 'Data siswa tidak ditemukan');
         }
 
-        // Generate QR (isi QR = link ke dashboard siswa ini)
         $url = route('student.dashboard');
         $qrSvg = QrCode::size(200)->generate($url);
 
-        // Hitung status kelulusan
         $score = $student->grade->score ?? 0;
         $status = $score >= 75 ? 'Lulus' : 'Tidak Lulus';
 
@@ -32,7 +30,6 @@ class StudentController extends Controller
         return view('student.dashboard', compact('student', 'qrSvg', 'status', 'score'));
     }
 
-    // Update atau buat grade siswa
     public function updateGrade(Request $request, $nisn)
     {
         $request->validate([

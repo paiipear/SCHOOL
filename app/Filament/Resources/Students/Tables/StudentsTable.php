@@ -53,7 +53,6 @@ class StudentsTable
                         'success' => 'Lulus',
                         'danger' => 'Tidak Lulus',
                     ]),
-                // Alamat multi-line (menggunakan HTML <br> dan ->html())
                 TextColumn::make('studentAddress.street')
                     ->label('Alamat')
                     ->formatStateUsing(fn ($state, $record) => (
@@ -67,7 +66,7 @@ class StudentsTable
                             ])
                             : '-'
                     ))
-                    ->html() // penting: agar <br> dirender
+                    ->html()
                     ->searchable(query: function ($query, $search) {
                         $query->whereHas('studentAddress', function ($q) use ($search) {
                             $q->where('street', 'like', "%{$search}%")

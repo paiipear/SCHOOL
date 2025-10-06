@@ -12,19 +12,16 @@ return new class extends Migration
             $table->id();
             $table->char('nisn', 10);
             $table->string('street', 200);
-            $table->string('number', 20)->nullable(); // sebelumnya "nomor"
+            $table->string('number', 20)->nullable(); 
             $table->string('rt', 5)->nullable();
             $table->string('rw', 5)->nullable();
             $table->char('postal_code', 5);
             $table->timestamps();
-
-            // Foreign keys
             $table->foreign('nisn')
                 ->references('nisn')->on('students')
                 ->cascadeOnUpdate()->cascadeOnDelete();
-
             $table->foreign('postal_code')
-                ->references('postal_code')->on('master_addresses') // pastikan nama & kolomnya cocok
+                ->references('postal_code')->on('master_addresses') 
                 ->cascadeOnUpdate()->restrictOnDelete();
 
             // 1 siswa = 1 alamat aktif

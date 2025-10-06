@@ -10,7 +10,7 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-
+Route::get('/', fn() => view('home'))->name('home');
 // // Guru
 // Route::middleware('auth:web')->group(function () {
 //     Route::get('/guru/dashboard', fn() => view('guru.dashboard'))->name('guru.dashboard');

@@ -45,15 +45,15 @@ class StudentForm
                 ->label('Kelas'),
                 
             ComponentsFieldset::make('Nilai Kelulusan')
-                ->relationship('grade') // nama relasi di model Student: public function grade() { return $this->hasOne(Grade::class); }
+                ->relationship('grade') 
                 ->schema([
-                    TextInput::make('score')          // **jangan** pakai 'grade.score' di sini
+                    TextInput::make('score')      
                         ->label('Nilai Kelulusan')
                         ->numeric()
                         ->minValue(0)
                         ->maxValue(100)
-                        ->nullable()                 // boleh dikosongkan
-                        ->dehydrated(fn($state) => filled($state)), // hanya disertakan saat ada nilai
+                        ->nullable()       
+                        ->dehydrated(fn($state) => filled($state)),
                 ]),
 
             ComponentsSection::make('Alamat Siswa')

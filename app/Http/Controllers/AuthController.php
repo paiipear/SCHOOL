@@ -17,8 +17,7 @@ class AuthController extends Controller
     {
         $username = $request->input('username');
         $password = $request->input('password');
-
-        // Kasus 1: Admin
+        //addmin
         if (Str::startsWith($username, 'admin_')) {
         if (Auth::guard('web')->attempt([
             'username' => $username,
@@ -36,7 +35,7 @@ class AuthController extends Controller
         //     }
         // }
 
-        // Kasus 3: Siswa (login pakai NISN)
+        //siswa
         if (Auth::guard('student')->attempt(['nisn' => $username, 'password' => $password])) {
             return redirect()->route('student.dashboard');
         }

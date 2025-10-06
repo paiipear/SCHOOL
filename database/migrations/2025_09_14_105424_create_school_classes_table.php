@@ -6,24 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    
     public function up(): void
     {
        Schema::create('school_classes', function (Blueprint $table) {
             $table->id();
-            $table->string('grade_level'); // e.g. "10", "11", "12"
-            $table->string('major');       // jurusan
-            $table->string('rombel');      // rombel
+            $table->string('grade_level'); 
+            $table->string('major');       
+            $table->string('rombel');      
             $table->timestamps();
         });
 
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('school_classes');

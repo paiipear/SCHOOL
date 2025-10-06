@@ -16,8 +16,7 @@ class StudentAddress extends Model
         'rw',
         'postal_code'
     ];
-
-    // Relasi ke Student
+    
     public function student()
     {
         return $this->belongsTo(Student::class, 'nisn', 'nisn');

@@ -16,7 +16,6 @@ class Student extends  Authenticatable
          return $this->hasOne(Grade::class); 
     }
 
-    // App\Models\Student.php
     public function studentAddress()
     {
         return $this->hasOne(StudentAddress::class, 'nisn', 'nisn');

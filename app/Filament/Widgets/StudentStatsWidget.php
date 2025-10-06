@@ -11,7 +11,6 @@ class StudentStatsWidget extends BaseWidget
     {
         $lulusCount = Grade::where('result', 'Lulus')->count();
         $tidakLulusCount = Grade::where('result', 'Tidak Lulus')->count();
-        // $belumAdaNilaiCount = Grade::whereNull('score')->count(); 
 
         return [
             Stat::make(' ', $lulusCount)
@@ -26,11 +25,7 @@ class StudentStatsWidget extends BaseWidget
                 ->color('danger')
                 ->chart([$tidakLulusCount]),
 
-            // Stat::make(' ', $belumAdaNilaiCount)
-            //     ->description('Siswa yang belum punya nilai')
-            //     ->descriptionIcon('heroicon-o-question-mark-circle')
-            //     ->color('warning')
-            //     ->chart([$belumAdaNilaiCount]),
+           
         ];
     }
 }

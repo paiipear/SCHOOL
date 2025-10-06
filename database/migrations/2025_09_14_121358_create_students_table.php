@@ -10,13 +10,12 @@ return new class extends Migration
     public function up(): void
     {
        Schema::create('students', function (Blueprint $table) {
-            $table->id(); // primary key default laravel
-            $table->string('nisn')->unique();    // nisn tetap unik
+            $table->id(); 
+            $table->string('nisn')->unique(); 
             $table->string('name');
-            $table->enum('gender', ['L', 'P']);  // jenis kelamin
-            $table->string('password');          // password siswa (bcrypt)
+            $table->enum('gender', ['L', 'P']); 
+            $table->string('password');          
 
-            // relasi ke kelas
             $table->unsignedBigInteger('school_classes_id')->nullable();
             $table->foreign('school_classes_id')->references('id')->on('school_classes')->onDelete('set null');
 
@@ -24,9 +23,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('students');
